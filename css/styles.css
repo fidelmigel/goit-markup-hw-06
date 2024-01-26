@@ -35,22 +35,24 @@ button {
 
 img {
   display: block;
+  
 }
 
 /* common styles */
 .container {
-  width: 1158px;
+ /* width: 1158px;
   padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
+  padding-right: 15px;*/
+  max-width: 320px;
+    padding: 0 16px;
+     margin: 0 auto;
 }
-
+    
+    
 .section {
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
-
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -76,6 +78,8 @@ img {
 
 .header .container {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .navigation {
@@ -84,14 +88,16 @@ img {
 }
 
 .nav-menu {
-  display: flex;
-  gap: 40px;
+  display: none;
+  
 }
 
+
 .address-list {
-  display: flex;
-  gap: 40px;
+  display: none;
+  
 }
+
 
 .logo {
   font-family: 'Raleway', sans-serif;
@@ -102,13 +108,13 @@ img {
   line-height: 1.17;
   letter-spacing: 0.54px;
   text-transform: uppercase;
-  margin-right: 76px;
+  padding: 17px 0;
 }
 
 .navigation .logo .accent {
   color: #2e2f42;
 }
-
+/*
 .nav-link {
   display: block;
 
@@ -153,7 +159,9 @@ img {
 .header-address {
   font-style: normal;
   margin-left: auto;
+  display: none;
 }
+*/
 
 .address-link {
   display: block;
@@ -174,6 +182,13 @@ img {
 .address-link:hover,
 .address-link:focus {
   color: #404bbf;
+}
+.open-menu-btn {
+ padding: 0; 
+ background-color: transparent;
+ cursor: pointer;
+ line-height: 0;
+ border: none;
 }
 
 /* Main */
@@ -377,16 +392,24 @@ img {
 /* Section portfolio */
 .portfolio-list {
   display: flex;
-  flex-wrap: wrap;
+  display: flex;
+    width: 288px;
+    padding-bottom: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  /*flex-wrap: wrap;
   column-gap: 24px;
-  row-gap: 48px;
+  row-gap: 48px;*/
 }
 
 .portfolio-item {
-  width: calc((100% - 24px * 2) / 3);
+ /* width: calc((100% - 24px * 2) / 3);*/
+width: 100%;
+padding-left: 16px;
+  padding-right: 16px;
 
   border: 1px solid #e7e9fc;
-
   transition-property: box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -402,6 +425,7 @@ img {
 .portfolio-wrapper {
   position: relative;
   overflow: hidden;
+  
 }
 
 .portfolio-overlay {
@@ -447,6 +471,10 @@ img {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.32px;
+}
+.portfolio-img {
+margin: 0 auto;
+
 }
 
 /* Footer */
@@ -804,3 +832,115 @@ img {
   text-decoration-line: underline;
   color: #4d5ae5;
 }
+@media screen and (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    } 
+      .nav-menu {
+        display: flex; 
+
+      }
+            
+     .address-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+      
+          }
+      .open-menu-btn {
+        display: none;
+      }
+          .header-address {
+            display: block;
+          }
+          .logo {
+            margin-right: 120px;
+          }
+  .nav-link {
+    display: block;
+
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    color: #2e2f42;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.16;
+    letter-spacing: 0.32px;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-link.active {
+    position: relative;
+
+    color: #404bbf;
+  }
+
+  .nav-link.active::after {
+    position: absolute;
+    bottom: -1px;
+
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: #404bbf;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus,
+  .nav-link:active {
+    color: #404bbf;
+  }
+
+  .header-address {
+    font-style: normal;
+    margin-left: auto;
+    display: block;
+  }
+  .nav-menu {
+    display: flex;
+    gap: 40px;
+  }
+  }
+  @media screen and (min-width: 1158px) {
+   .logo {
+    margin-right: 76px;
+   }
+   .address-list {
+    flex-direction: row;
+    gap: 40px;
+   }
+   .address-link {
+    font-size: 16px;
+    line-height: 1,5;
+   }
+    .container {
+      max-width: 1158px;
+      padding: 15px;
+    }
+    
+   
+/*.portfolio-list {
+  display: flex;
+  width: 288px;
+  padding-bottom: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 48px;
+}
+
+.portfolio-item {
+   width: calc((100% - 24px * 2) / 2);
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+*/
